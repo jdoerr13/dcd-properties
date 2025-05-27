@@ -1,10 +1,6 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Montserrat } from "next/font/google";
-const montserrat = Montserrat({ subsets: ["latin"], weight: ["700", "900"] });
-import { Varela_Round } from "next/font/google";
-const varela = Varela_Round({ subsets: ["latin"], weight: ["400"] }); // Varela Round is only one weight
 import { Nunito } from "next/font/google";
 const nunito = Nunito({ subsets: ["latin"], weight: ["800"] });
 
@@ -130,11 +126,6 @@ export default function Home() {
       >
         DCD PROPERTIES 
       </h1>
-
-
-
-
-
 
 
             <h2 className="text-lg md:text-2xl text-blue-100 font-medium mb-6 drop-shadow-md">
