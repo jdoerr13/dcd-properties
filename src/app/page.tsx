@@ -81,12 +81,14 @@ export default function Home() {
             <span className="hidden md:inline-block" style={{ width: 120, height: 48 }} />
           </div>
           {/* Center nav links */}
-          <div className="hidden md:flex justify-center space-x-10 text-white font-semibold uppercase tracking-widest text-base drop-shadow-md">
-            <a href="#services" className="hover:text-blue-300 transition">Services</a>
-            <a href="#listings" className="hover:text-blue-300 transition whitespace-nowrap">Rental Properties</a>
-            <a href="#contact" className="hover:text-blue-300 transition">Contact</a>
-            <a href="#" className="hover:text-blue-300 transition whitespace-nowrap">Tenant / Owner Login</a>
-          </div>
+        <div className="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-10 text-white font-semibold uppercase tracking-widest text-base drop-shadow-md mt-6 md:mt-0">
+  <a href="#services" className="hover:text-blue-300 transition">Services</a>
+  <a href="#listings" className="hover:text-blue-300 transition whitespace-nowrap">Rental Properties</a>
+  <a href="#contact" className="hover:text-blue-300 transition">Contact</a>
+  <a href="#" className="hover:text-blue-300 transition whitespace-nowrap">Tenant / Owner Login</a>
+</div>
+
+
           {/* Right side contact link */}
           <div className="hidden md:flex justify-end">
             <a href="tel:3046147020" className="text-lg font-bold text-white hover:text-blue-300 transition drop-shadow-md">
