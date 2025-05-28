@@ -26,7 +26,7 @@ export default function Home() {
         {/* Overlay for readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30 z-0" />
 
-        {/* Sticky Logo - only visible on desktop */}
+        {/* Sticky Logo - Desktop */}
         <div className="fixed top-4 left-6 z-50 pointer-events-none select-none hidden md:block">
           <span
             className="inline-block rounded-xl"
@@ -54,29 +54,37 @@ export default function Home() {
           </span>
         </div>
 
+        {/* Sticky Logo - Mobile Only */}
+        <div className="fixed top-3 left-3 z-50 md:hidden pointer-events-none select-none">
+          <span
+            className="inline-block rounded-2xl bg-black/60 p-1"
+            style={{
+              boxShadow: "0 0 0 6px rgba(30,41,59,0.2), 0 4px 18px 6px rgba(0,0,0,0.35)"
+            }}
+            aria-hidden="true"
+          >
+            <Image
+              src="/FullLogo_Transparent.png"
+              alt="DCD Logo"
+              width={160}
+              height={64}
+              priority
+              className="object-contain"
+              style={{
+                filter: `
+                  drop-shadow(0 0 4px #2563eb)
+                  drop-shadow(0 0 2px #fff)
+                  drop-shadow(0 2px 8px #000)
+                `
+              }}
+            />
+          </span>
+        </div>
+
         {/* NAV BAR */}
         <nav className="absolute top-0 left-0 w-full grid grid-cols-3 items-center px-8 py-6 z-20">
-          {/* Left: Logo */}
+          {/* Left: Logo placeholder for spacing (no logo here on mobile now) */}
           <div className="flex-shrink-0 z-30">
-            {/* Mobile logo only */}
-            <span className="block md:hidden">
-              <Image
-                src="/FullLogo_Transparent.png"
-                alt="DCD Logo"
-                width={120}
-                height={48}
-                priority
-                className="object-contain"
-                style={{
-                  filter: `
-                    drop-shadow(0 0 6px #2563eb)
-                    drop-shadow(0 0 2px #fff)
-                    drop-shadow(0 2px 12px #000)
-                  `
-                }}
-              />
-            </span>
-            {/* Desktop placeholder for grid spacing */}
             <span className="hidden md:inline-block" style={{ width: 120, height: 48 }} />
           </div>
 
@@ -257,28 +265,28 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-          <footer className="bg-gray-800 text-white py-8">
-            <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-              {/* Contact Info: address, phone, email */}
-              <div className="flex flex-col md:flex-row md:items-center md:space-x-10 text-sm text-center md:text-left mb-4 md:mb-0">
-                <span>
-                  <strong>Address:</strong> 100 Westridge Drive, Elkins, WV 26241
-                </span>
-                <span>
-                  <strong>Phone:</strong> <a href="tel:3046147020" className="underline hover:text-blue-300">304-614-7020</a>
-                </span>
-                <span>
-                  <strong>Email:</strong> <a href="mailto:daviddoerr44@gmail.com" className="underline hover:text-blue-300">daviddoerr44@gmail.com</a>
-                </span>
-              </div>
-              {/* Logins */}
-              <div className="space-x-4">
-                <a href="#" className="hover:underline">
-                  Owner / Tenant Login
-                </a>
-              </div>
-            </div>
-          </footer>
+      <footer className="bg-gray-800 text-white py-8">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+          {/* Contact Info: address, phone, email */}
+          <div className="flex flex-col md:flex-row md:items-center md:space-x-10 text-sm text-center md:text-left mb-4 md:mb-0">
+            <span>
+              <strong>Address:</strong> 100 Westridge Drive, Elkins, WV 26241
+            </span>
+            <span>
+              <strong>Phone:</strong> <a href="tel:3046147020" className="underline hover:text-blue-300">304-614-7020</a>
+            </span>
+            <span>
+              <strong>Email:</strong> <a href="mailto:daviddoerr44@gmail.com" className="underline hover:text-blue-300">daviddoerr44@gmail.com</a>
+            </span>
+          </div>
+          {/* Logins */}
+          <div className="space-x-4">
+            <a href="#" className="hover:underline">
+              Owner / Tenant Login
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
