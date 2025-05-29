@@ -90,16 +90,17 @@ export default function Home() {
 
           {/* Center: Nav Links (desktop only) */}
           <div className="hidden md:flex justify-center space-x-10 text-white font-semibold uppercase tracking-widest text-base drop-shadow-md">
-            <a href="#services" className="hover:text-blue-300 transition">Services</a>
+          <a href="/maintenance" className="hover:text-blue-300 transition whitespace-nowrap">Maintenance Request</a>
             <a href="#listings" className="hover:text-blue-300 transition whitespace-nowrap">Rental Properties</a>
             <a href="#contact" className="hover:text-blue-300 transition">Contact</a>
-            <a href="#" className="hover:text-blue-300 transition whitespace-nowrap">Tenant / Owner Login</a>
+            <a href="/login" className="hover:text-blue-300 transition whitespace-nowrap">Tenant / Owner Login</a>
+
           </div>
 
           {/* Right: Contact link (desktop only) */}
           <div className="hidden md:flex justify-end">
-            <a href="tel:3046147020" className="text-lg font-bold text-white hover:text-blue-300 transition drop-shadow-md">
-              Call: 304-614-7020
+            <a href="tel:3046147029" className="text-lg font-bold text-white hover:text-blue-300 transition drop-shadow-md">
+              Call: 304-614-7029
             </a>
           </div>
 
@@ -118,11 +119,14 @@ export default function Home() {
         {/* MOBILE MENU OVERLAY */}
         {mobileNavOpen && (
           <div className="fixed inset-0 bg-black/90 z-50 flex flex-col items-center justify-center space-y-8 text-white text-xl font-semibold uppercase tracking-widest transition-all">
-            <a href="#services" onClick={() => setMobileNavOpen(false)} className="hover:text-blue-300 transition">Services</a>
+          <a href="/maintenance" onClick={() => setMobileNavOpen(false)} className="hover:text-blue-300 transition"> Maintenance Request</a>
             <a href="#listings" onClick={() => setMobileNavOpen(false)} className="hover:text-blue-300 transition whitespace-nowrap">Rental Properties</a>
             <a href="#contact" onClick={() => setMobileNavOpen(false)} className="hover:text-blue-300 transition">Contact</a>
-            <a href="#" onClick={() => setMobileNavOpen(false)} className="hover:text-blue-300 transition whitespace-nowrap">Tenant / Owner Login</a>
-            <a href="tel:3046147020" onClick={() => setMobileNavOpen(false)} className="text-lg font-bold hover:text-blue-300 transition">Call: 304-614-7020</a>
+            <a href="/login" onClick={() => setMobileNavOpen(false)} className="hover:text-blue-300 transition whitespace-nowrap">
+                Tenant / Owner Login
+                      </a>
+
+            <a href="tel:3046147029" onClick={() => setMobileNavOpen(false)} className="text-lg font-bold hover:text-blue-300 transition">Call: 304-614-7029</a>
           </div>
         )}
 
@@ -273,18 +277,18 @@ export default function Home() {
               <strong>Address:</strong> 100 Westridge Drive, Elkins, WV 26241
             </span>
             <span>
-              <strong>Phone:</strong> <a href="tel:3046147020" className="underline hover:text-blue-300">304-614-7020</a>
+              <strong>Phone:</strong> <a href="tel:3046147029" className="underline hover:text-blue-300">304-614-7029</a>
             </span>
             <span>
               <strong>Email:</strong> <a href="mailto:daviddoerr44@gmail.com" className="underline hover:text-blue-300">daviddoerr44@gmail.com</a>
             </span>
           </div>
           {/* Logins */}
-          <div className="space-x-4">
-            <a href="#" className="hover:underline">
-              Owner / Tenant Login
-            </a>
-          </div>
+       <div className="space-x-4">
+          <a href="/login" className="hover:underline">
+            Owner / Tenant Login
+          </a>
+        </div>
         </div>
       </footer>
     </div>
