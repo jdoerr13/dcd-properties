@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function MaintenanceRequest() {
   const [submitted, setSubmitted] = useState(false);
 
-  async function handleSubmit(e) {
+ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData(e.target);
     const response = await fetch("https://formspree.io/f/mvgrpavy", {
