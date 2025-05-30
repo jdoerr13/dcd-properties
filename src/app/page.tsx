@@ -240,7 +240,7 @@ export default function Home() {
             Serving Elkins & Buckhannon, West Virginia
           </p>
           <p className="text-gray-700">
-            [Placeholder for live listings or property cards]
+            All units are currently occupied.  Please contact us for next available rental.  
           </p>
         </div>
       </section>
