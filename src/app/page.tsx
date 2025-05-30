@@ -12,9 +12,9 @@ export default function Home() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [contactSubmitted, setContactSubmitted] = useState(false);
 
-  async function handleContactSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
+async function handleContactSubmit(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault();
+  const formData = new FormData(e.target as HTMLFormElement);
     const response = await fetch("https://formspree.io/f/xrbkzqyw", {
       method: "POST",
       body: formData,
