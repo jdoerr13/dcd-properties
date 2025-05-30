@@ -9,6 +9,22 @@ const nunito = Nunito({ subsets: ["latin"], weight: ["800"] });
 
 export default function Home() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [contactSubmitted, setContactSubmitted] = useState(false);
+
+  async function handleContactSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const response = await fetch("https://formspree.io/f/xrbkzqyw", {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" }
+    });
+    if (response.ok) {
+      setContactSubmitted(true);
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 font-sans">
@@ -229,44 +245,60 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACT */}
+     {/* CONTACT */}
       <section id="contact" className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-extrabold text-center mb-12 text-gray-900 tracking-tight">
             Contact Us
           </h2>
-          <form
-            className="mx-auto max-w-2xl bg-gray-50 p-8 rounded-2xl shadow-lg grid grid-cols-1 md:grid-cols-3 gap-6"
-          >
-            <input
-              type="text"
-              placeholder="Full Name"
-              className="border border-gray-300 rounded-lg px-4 py-3 w-full bg-white focus:border-blue-400 focus:ring-2 focus:ring-blue-200 outline-none transition"
-            />
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="border border-gray-300 rounded-lg px-4 py-3 w-full bg-white focus:border-blue-400 focus:ring-2 focus:ring-blue-200 outline-none transition"
-            />
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              className="border border-gray-300 rounded-lg px-4 py-3 w-full bg-white focus:border-blue-400 focus:ring-2 focus:ring-blue-200 outline-none transition"
-            />
-            <textarea
-              placeholder="Your Message"
-              rows={4}
-              className="border border-gray-300 rounded-lg px-4 py-3 w-full md:col-span-3 bg-white focus:border-blue-400 focus:ring-2 focus:ring-blue-200 outline-none transition"
-            />
-            <button
-              type="submit"
-              className="bg-blue-600 text-white px-8 py-3 rounded-xl hover:bg-blue-700 transition md:col-span-3 font-semibold shadow-md"
+          {contactSubmitted ? (
+            <div className="text-green-600 text-center font-semibold text-lg">
+              Thank you! Your message has been sent.
+            </div>
+          ) : (
+            <form
+              onSubmit={handleContactSubmit}
+              className="mx-auto max-w-2xl bg-gray-50 p-8 rounded-2xl shadow-lg grid grid-cols-1 md:grid-cols-3 gap-6"
             >
-              Send Message
-            </button>
-          </form>
+              <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                required
+                className="border border-gray-300 rounded-lg px-4 py-3 w-full bg-white focus:border-blue-400 focus:ring-2 focus:ring-blue-200 outline-none transition"
+              />
+                  <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                required
+                className="border border-gray-300 rounded-lg px-4 py-3 w-full bg-white focus:border-blue-400 focus:ring-2 focus:ring-blue-200 outline-none transition"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address (optional)"
+                className="border border-gray-300 rounded-lg px-4 py-3 w-full bg-white focus:border-blue-400 focus:ring-2 focus:ring-blue-200 outline-none transition"
+              />
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                rows={4}
+                required
+                className="border border-gray-300 rounded-lg px-4 py-3 w-full md:col-span-3 bg-white focus:border-blue-400 focus:ring-2 focus:ring-blue-200 outline-none transition"
+              />
+              <button
+                type="submit"
+                className="bg-blue-600 text-white px-8 py-3 rounded-xl hover:bg-blue-700 transition md:col-span-3 font-semibold shadow-md"
+              >
+                Send Message
+              </button>
+            </form>
+          )}
         </div>
       </section>
+
+
 
       {/* FOOTER */}
       <footer className="bg-gray-800 text-white py-8">
@@ -286,7 +318,7 @@ export default function Home() {
           {/* Logins */}
        <div className="space-x-4">
           <a href="/login" className="hover:underline">
-            Owner / Tenant Login
+            Tenant / Owner Login
           </a>
         </div>
         </div>

@@ -2,15 +2,13 @@
 import { useState } from "react";
 import Link from "next/link";
 
-
 export default function MaintenanceRequest() {
   const [submitted, setSubmitted] = useState(false);
 
-  // This handles submission and only sets submitted if the fetch is ok
   async function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const response = await fetch(e.target.action, {
+    const response = await fetch("https://formspree.io/f/mvgrpavy", {
       method: "POST",
       body: formData,
       headers: { Accept: "application/json" }
@@ -22,7 +20,7 @@ export default function MaintenanceRequest() {
     }
   }
 
-     return (
+  return (
     <section className="py-16 bg-gray-50 min-h-screen flex items-center">
       <div className="max-w-xl mx-auto w-full">
         {/* Back Button */}
@@ -42,7 +40,7 @@ export default function MaintenanceRequest() {
             </div>
           ) : (
             <form
-              action="https://formspree.io/f/your-maintenance-form-id"
+              action="https://formspree.io/f/mvgrpavy"
               method="POST"
               onSubmit={handleSubmit}
               className="grid gap-4"
@@ -51,7 +49,8 @@ export default function MaintenanceRequest() {
               <input name="tenant_name" type="text" placeholder="Full Name" required className="border rounded-lg px-4 py-3 w-full" />
               <input name="address" type="text" placeholder="Unit or Property Address" required className="border rounded-lg px-4 py-3 w-full" />
               <input name="phone" type="tel" placeholder="Phone Number" required className="border rounded-lg px-4 py-3 w-full" />
-              <input name="contact_time" type="text" placeholder="Best Time to Contact" className="border rounded-lg px-4 py-3 w-full" />
+              <input name="contact_time" type="text" placeholder="Best Time to Contact (optional)" className="border rounded-lg px-4 py-3 w-full" />
+              <input name="email" type="email" placeholder="Email Address (optional)" className="border rounded-lg px-4 py-3 w-full" />
               <select name="request_type" required className="border rounded-lg px-4 py-3 w-full">
                 <option value="">Type of Request</option>
                 <option value="Plumbing">Plumbing</option>
