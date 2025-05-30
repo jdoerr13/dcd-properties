@@ -5,20 +5,20 @@ import Link from "next/link";
 export default function MaintenanceRequest() {
   const [submitted, setSubmitted] = useState(false);
 
- async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const response = await fetch("https://formspree.io/f/mvgrpavy", {
-      method: "POST",
-      body: formData,
-      headers: { Accept: "application/json" }
-    });
-    if (response.ok) {
-      setSubmitted(true);
-    } else {
-      alert("Something went wrong. Please try again.");
-    }
+async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault();
+  const formData = new FormData(e.target as HTMLFormElement);
+  const response = await fetch("https://formspree.io/f/mvgrpavy", {
+    method: "POST",
+    body: formData,
+    headers: { Accept: "application/json" }
+  });
+  if (response.ok) {
+    setSubmitted(true);
+  } else {
+    alert("Something went wrong. Please try again.");
   }
+}
 
   return (
     <section className="py-16 bg-gray-50 min-h-screen flex items-center">
